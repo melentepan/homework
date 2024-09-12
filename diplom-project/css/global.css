@@ -1,0 +1,130 @@
+:root {
+    --general-bg: #222224;
+    --general-text: #EFEFEF;
+    --accent-color: #EA4C14;
+    --hover-color: #E74214;
+    --transition: all 0.5s;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+.body {
+    font-family: "Roboto", "Arial", sans-serif;
+    color: var(--general-text);
+    background: var(--general-bg);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.wrapper {
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+    height: 100%;
+}
+
+.title {
+    color: var(--general-text);
+    font-family: "Bebas Neue";
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+
+.promo-bar {
+    background: var(--accent-color);
+
+    color: #FFF;
+    text-align: center;
+
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.18px;
+
+    padding: 7px 14px;
+    margin-top: 1px;
+    border-radius: 0px 0px 6px 6px;
+
+    position: absolute;
+    right: 0;
+    top: 100%;
+
+
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.promo-bar:hover {
+    background: var(--general-text);
+    color: var(--accent-color);
+}
+
+.button {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    padding: 0px 35px;
+
+    border-radius: 6px;
+    background: var(--accent-color);
+    justify-content: center;
+    align-items: center;
+
+    color: #FFF;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.18px;
+
+    transition: var(--transition);
+}
+
+.button:hover {
+    color: var(--accent-color);
+    background: #FFF;
+}
+
+.tooltip {
+    overflow: hidden;
+
+    position: absolute;
+    transform: translate(5px, 10px);
+    pointer-events: none;
+    display: none;
+
+    max-width: 20vw;
+    width: max-content;
+    z-index: 3;
+
+    background: #000000e6;
+
+    color: #9DA0A3;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    letter-spacing: 0.14px;
+
+    border-radius: 0px 6px 6px 6px;
+    padding: 10px 16px;
+
+}
