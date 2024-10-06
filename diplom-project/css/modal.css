@@ -1,0 +1,153 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #00000099;
+    z-index: 100;
+    padding: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+
+    transition: all 0.6s;
+}
+
+.modal--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__window {
+    background: #F9F9F9;
+    color: #000;
+    border-radius: 6px;
+    padding: 50px 100px;
+    position: relative;
+    max-width: 1040px;
+
+    margin: auto
+}
+
+.modal__cancel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.modal__cancel path {
+    transition: var(--transition);
+}
+
+.modal__cancel:hover path {
+    stroke: var(--hover-color);
+}
+
+.modal__title {
+    color: #1C1C1C;
+    padding-right: 50px;
+}
+
+.modal__subtitle {
+    color: #1C1C1C;
+    font-family: "Roboto";
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.22727;
+    letter-spacing: 0.44px;
+
+    margin-top: -5px;
+}
+
+.modal__email-text {
+    font-weight: 500;
+    margin-top: 34px;
+}
+
+.modal__email-link {
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.modal__email-link:hover {
+    color: #1C1C1C;
+    text-decoration: underline;
+}
+
+.modal__text {
+    margin-top: 20px;
+}
+
+.modal__text-list {
+    margin: 17px 0;
+}
+
+.modal-iframe {
+    padding: 50px;
+}
+
+.modal-iframe .modal__cancel {
+    top: 10px;
+    right: 10px;
+
+    transform: scale(0.7);
+}
+
+.modal-iframe .modal__window {
+    background: transparent;
+    position: static;
+    max-width: 1920px;
+    width: 100%;
+    padding: 0;
+}
+
+.modal-iframe iframe {
+    width: 100%;
+    height: 80vh;
+}
+
+.content__modal-iframe-link {
+    opacity: 1;
+
+    transition: var(--transition);
+}
+
+.content__modal-iframe-link:hover {
+    opacity: 0.5;
+}
+
+@media (max-width: 800px) {
+    .modal__cancel {
+        top: 10px;
+        right: 10px;
+
+        transform: scale(0.7);
+    }
+
+    .modal__window {
+        padding: 25px 50px;
+    }
+
+    .modal__email-text {
+        margin-top: 17px;
+    }
+
+    .modal__text {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal__window {
+        font-size: 3.5vw;
+
+        padding: 20px 20px;
+    }
+
+    .modal__subtitle {
+        font-size: 5vw;
+    }
+}

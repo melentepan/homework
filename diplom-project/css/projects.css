@@ -1,0 +1,189 @@
+.main__projects {
+    padding-top: 173px;
+}
+
+.projects {
+    background: #2E2E31;
+}
+
+.projects__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px 11px;
+
+    margin-top: 65px;
+}
+
+.projects__chips-item {
+    padding: 8px 36px;
+    border-radius: 6px;
+    border: 1px solid #FFF;
+
+    transition: var(--transition);
+}
+
+.projects__chips-item:hover {
+    background: var(--accent-color);
+    color: var(--general-text);
+
+    border-color: transparent;
+}
+
+.projects__chips-item--selected {
+    background: var(--accent-color);
+    color: var(--general-text);
+
+    border-color: transparent;
+}
+
+.projects__reset-chips {
+    color: var(--hover-color);
+
+    align-self: center;
+
+    margin-left: auto;
+
+    transition: var(--transition);
+}
+
+.projects__reset-chips:hover {
+    color: var(--general-text);
+}
+
+.projects__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    margin-top: 26px;
+}
+
+.projects__list-item {
+    position: relative;
+}
+
+.projects__list-item:nth-child(2),
+.projects__list-item:nth-child(3) {
+    grid-row: span 2;
+}
+
+.projects__list-item img {
+    filter: grayscale(100%);
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.projects__list-item:hover img {
+    filter: grayscale(0%);
+}
+
+.projects__list-item-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: transparent;
+
+    padding: 23px 40px;
+
+    transition: var(--transition);
+}
+
+.projects__list-item:hover .projects__list-item-info {
+    background: #00000080;
+
+}
+
+.projects__list-item-title {
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: 0.32px;
+}
+
+.projects__list-item-chips-list {
+    display: flex;
+    gap: 11px;
+    overflow-x: scroll;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.projects__list-item-chips-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.projects__list-item:hover .projects__list-item-chips-list {
+    opacity: 1;
+}
+
+.projects__list-item-chips-item {
+    padding: 3px 18px;
+
+    text-wrap: nowrap;
+
+    border-radius: 6px;
+    border: 1px solid #FFF;
+}
+
+.projects__button {
+    max-width: 436px;
+
+    margin: 49px auto 0;
+}
+
+@media (max-width: 950px) {
+    .main__projects {
+        padding-top: 73px;
+    }
+
+    .projects__list {
+        gap: 15px;
+    }
+
+    .projects__chips {
+        display: none;
+    }
+
+    .projects__list-item-title {
+        font-size: 4vw;
+    }
+
+    .projects__list-item-info {
+        padding: 10px 20px;
+    }
+
+    .projects__list-item-chips-list {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .main__projects {
+        padding-top: 25px;
+    }
+
+    .projects__list {
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .projects__list-item-title {
+        font-size: 5vw;
+    }
+
+    .projects__list-item-chips-list {
+        display: none;
+    }
+
+    .projects__button {
+        margin-top: 30px;
+    }
+
+}

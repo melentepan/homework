@@ -1,0 +1,21 @@
+@import "fonts.css";
+@import "reset.css";
+@import "global.css";
+
+@import "header.css";
+@import "hero.css";
+@import "services.css";
+@import "benefits.css";
+@import "stats.css";
+@import "steps.css";
+@import "content.css";
+@import "projects.css";
+@import "leader.css";
+@import "team.css";
+@import "details.css";
+@import "partners.css";
+@import "about.css";
+@import "news.css";
+@import "price.css";
+@import "footer.css";
+@import "modal.css";

@@ -1,0 +1,33 @@
+.main__price {
+    padding: 134px 0 148px;
+}
+
+.price {
+    background: #2E2E31;
+}
+
+.price__title {
+    font-size: 60px;
+    line-height: 1.13333;
+    letter-spacing: 0.6px;
+    text-align: center;
+}
+
+.price__button {
+    max-width: 390px;
+    margin: 51px auto 0;
+}
+
+@media (max-width: 700px) {
+    .main__price {
+        padding: 65px 0 70px;
+    }
+
+    .price__title {
+        font-size: 8vw;
+    }
+
+    .price__button {
+        margin-top: 25px;
+    }
+}

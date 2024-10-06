@@ -1,0 +1,338 @@
+.content {
+    background: #2E2E31;
+}
+
+.content:nth-child(odd) {
+    background: #222224;
+}
+
+.content-block {
+    display: flex;
+}
+
+.content-block__slider {
+    overflow: hidden;
+    min-width: 0;
+
+    max-width: 859px;
+    width: 100%;
+
+    margin-right: 0;
+}
+
+.content-block__slide {
+    position: relative;
+}
+
+.content-block__slide img {
+    width: 100%;
+    height: 100%;
+
+    object-position: 50% 50%;
+    object-fit: cover;
+}
+
+.content-block__slider-controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    background: #00000080;
+
+    padding: 24px 0 21px;
+
+    z-index: 2;
+}
+
+.content-block__slider-controls--hidden {
+    display: none;
+}
+
+.content-block__next,
+.content-block__prev {
+    background: transparent;
+}
+
+.content-block__scrollbar {
+    background: #FFF;
+}
+
+.content-block__scrollbar.swiper-scrollbar {
+    position: static;
+    max-width: 254px;
+    width: 100%;
+    height: 1px;
+}
+
+.content-block__scrollbar .swiper-scrollbar-drag {
+    background: var(--accent-color);
+}
+
+.content-block__info {
+    max-width: 784px;
+    width: 100%;
+}
+
+.content-block__title {
+    margin: 82px 0 0 99px;
+}
+
+.content-block__subtitle {
+    margin: 6px 0 0 99px;
+}
+
+.content .accordion-list__item:first-child {
+    margin-top: 25px;
+}
+
+.content .accordion-list__control {
+    padding-left: 104px;
+}
+
+.content .accordion-content {
+    font-family: "Rubik";
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.16px;
+
+    padding-left: 109px;
+    padding-right: 0;
+}
+
+.content__add-text {
+    margin-top: 18px;
+    padding-left: 15px;
+    border-left: 2px solid #FFF;
+}
+
+.content__modal-link {
+    color: var(--accent-color);
+    font-size: 16px;
+    letter-spacing: 0.16px;
+    text-decoration-line: underline;
+
+    transition: var(--transition);
+}
+
+.content__modal-link:hover {
+    color: var(--general-text);
+}
+
+.content__examples {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-top: 96px;
+}
+
+.vr .content__examples,
+.add .content__examples {
+    align-items: end;
+    justify-content: start;
+    margin-top: 26px;
+}
+
+.vr .accordion-list__item:nth-of-type(4) .content__examples {
+    gap: 25px;
+}
+
+.content__examples-billboard {
+    position: absolute;
+
+    left: 34.5%;
+    bottom: 0;
+
+}
+
+.content__examples-roll-up {
+    position: absolute;
+
+    left: 39%;
+    bottom: 0;
+}
+
+.content__examples-booklet {
+    object-fit: contain;
+}
+
+.content__examples-demo {
+    margin-right: 108px;
+}
+
+.add .content__examples-demo {
+    margin-right: 0;
+    transform: translateX(-15%);
+}
+
+.add .content__examples-laptop {
+    z-index: 2;
+}
+
+.vr .accordion-list__item:nth-of-type(4) .content__examples-roll-up {
+    position: static;
+}
+
+.vr .accordion-list__item:nth-of-type(1) .content__examples-laptop,
+.vr .accordion-list__item:nth-of-type(3) .content__examples-laptop,
+.vr .accordion-list__item:nth-of-type(4) .content__examples-laptop {
+    position: absolute;
+
+    left: 18%;
+    bottom: 0;
+}
+
+.vr .accordion-list__item:nth-of-type(2) .content__examples-media {
+    margin: 0 25px 0 12px;
+}
+
+.content__button {
+    max-width: 320px;
+
+    margin: 70px 0 30px 105px;
+
+    text-align: center;
+}
+
+.accordion-list__control:hover .video3d-icon path:first-child,
+.accordion-list__item--opened .video3d-icon path:first-child,
+.accordion-list__control:hover .vr-icon path:nth-last-child(-n + 4),
+.accordion-list__item--opened .vr-icon path:nth-last-child(-n + 4),
+.accordion-list__control:hover .flyover-icon path:nth-last-child(-n + 4),
+.accordion-list__item--opened .flyover-icon path:nth-last-child(-n + 4),
+.accordion-list__control:hover .video3d-icon path:nth-last-child(-n + 4),
+.accordion-list__item--opened .video3d-icon path:nth-last-child(-n + 4) {
+    fill: var(--accent-color);
+    stroke: transparent;
+}
+
+.accordion-list__control:hover .anim-icon line,
+.accordion-list__item--opened .anim-icon line,
+.accordion-list__item--opened .anim-icon path {
+    fill: var(--accent-color);
+    stroke: var(--accent-color);
+}
+
+.accordion-list__control:hover .facade-icon line,
+.accordion-list__item--opened .facade-icon line,
+.accordion-list__item--opened .facade-icon path {
+    stroke: var(--accent-color);
+}
+
+
+@media (max-width: 1350px) {
+    .content-block {
+        flex-direction: column;
+    }
+
+    .content-block br {
+        display: none;
+    }
+
+    .content-block__slider {
+        max-width: none;
+    }
+
+    .content-block__slide {
+        overflow: hidden;
+    }
+
+    .content-block__slide img {
+        max-height: 62vw;
+        width: 100vw;
+        object-position: center;
+        object-fit: cover;
+    }
+
+    .content-block__slider-controls {
+        width: 100vw;
+    }
+
+    .content-block__info {
+        max-width: 100vw;
+    }
+}
+
+@media (max-width: 850px) {
+    .content-block__title {
+        text-align: center;
+        margin: 40px auto 0;
+    }
+
+    .content-block__subtitle {
+        text-align: center;
+        margin: 6px auto 25px;
+        padding: 5px 0;
+    }
+
+    .content .accordion-list__control {
+        padding-left: 30px;
+        padding-right: 10px;
+    }
+
+    .content .accordion-content {
+        padding-left: 50px;
+        padding-right: 10px;
+    }
+
+    .content__button {
+        margin: 35px auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .content .accordion-list__item:first-child {
+        margin-top: 5px;
+    }
+
+    .content-block__title {
+        font-size: 8vw;
+    }
+
+    .content-block__subtitle {
+        font-size: 4vw;
+    }
+
+    .content .accordion-content,
+    .content__modal-link {
+        font-size: 2.5vw;
+    }
+
+    .content__add-text {
+        margin-top: 10px;
+    }
+
+    .content__examples {
+        display: none;
+    }
+
+    .content__button {
+        max-width: 50vw;
+        height: 50px;
+        font-size: 3vw;
+
+        padding: 5px 10px;
+    }
+
+    .content-block__slider-controls {
+        gap: 10px;
+    }
+
+    .content-block__slider-controls {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .accordion-list__control-title {
+        font-size: 3.5vw;
+    }
+}

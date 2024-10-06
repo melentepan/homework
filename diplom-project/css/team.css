@@ -1,0 +1,88 @@
+.main__team {
+    padding: 117px 0 135px;
+}
+
+.team__title span {
+    color: var(--hover-color);
+}
+
+.team__text {
+    font-size: 22px;
+    line-height: 1.22727;
+    letter-spacing: 0.22px;
+
+    margin-top: 20px;
+}
+
+.team__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    align-items: end;
+
+    gap: 60px 30px;
+
+    margin-top: 85px;
+
+    justify-items: center;
+}
+
+.team__grid::-webkit-scrollbar {
+    width: 0;
+}
+
+.team__member {
+    max-width: 319px;
+}
+
+.team__member-info {
+    background: #2E2E31;
+    text-align: center;
+
+    border-top: 2px solid var(--hover-color);
+    padding: 18px 15px 20px;
+}
+
+.team__member-name {
+    color: var(--hover-color);
+
+    font-family: "Rubik";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.22727;
+    letter-spacing: 0.22px;
+}
+
+.team__member-role {
+    margin-top: 3px;
+}
+
+@media (max-width: 1300px) {
+    .main__team {
+        padding: 65px 0 70px;
+    }
+
+    .team__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .team__grid {
+        display: flex;
+        overflow-x: auto;
+
+        margin-top: 40px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .main__team {
+        padding: 35px 0 5px;
+    }
+
+    .team__text {
+        font-size: 5vw;
+    }
+}
