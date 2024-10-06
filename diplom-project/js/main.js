@@ -1,7 +1,70 @@
 (function () {
 
+    // Burger
+
+    document.addEventListener('click', burgerInit)
+
+    function burgerInit(e) {
+
+        const burgerIcon = e.target.closest('.burger-icon')
+        const burgerNavLink = e.target.closest('.nav__link')
+
+        if (!burgerIcon && !burgerNavLink) return
+        if (document.documentElement.clientWidth > 1000) return
+
+        if (burgerIcon) {
+            e.preventDefault()
+        }
+
+        if (!document.body.classList.contains('body--opened-menu')) {
+            document.body.classList.add('body--opened-menu')
+        } else {
+            document.body.classList.remove('body--opened-menu')
+        }
+    }
+
+    // Modal
+
+    const modalButtons = document.querySelectorAll('.content__modal-link');
+    const modals = document.querySelectorAll('.modal');
+
+    modalButtons.forEach(button => {
+        button.addEventListener('click', openModal);
+    });
+
+    modals.forEach(modal => {
+        modal.addEventListener('click', closeModal);
+    });
+
+    function openModal(e) {
+        e.preventDefault();
+
+        const modalId = e.currentTarget.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+
+        if (modal) {
+            document.body.classList.add('body--opened-modal');
+            modal.classList.add('modal--active');
+        }
+    }
+
+    function closeModal(e) {
+        const target = e.target;
+
+        if (!target.classList.contains('modal__email-link')) {
+            e.preventDefault();
+        }
+
+        if (!target.closest('.modal__cancel') && !target.classList.contains('modal')) return;
+
+        document.body.classList.remove('body--opened-modal');
+        document.querySelector('.modal.modal--active').classList.remove('modal--active');
+    }
+
     // Dropdown-menu
     document.addEventListener('DOMContentLoaded', function () {
+        if (document.documentElement.clientWidth <= 1000) return
+
         const dropdowns = document.querySelectorAll('.dropdown-list')
 
         dropdowns.forEach(dropdown => {
@@ -20,7 +83,7 @@
     // Hero-slider
     new Swiper('.hero__slider', {
         spaceBetween: 22,
-        slidesPerView: 1.2,
+        slidesPerView: 1,
         navigation: {
             nextEl: '.hero__next',
             prevEl: '.hero__prev',
@@ -29,6 +92,14 @@
             el: '.hero__scrollbar',
             draggable: true,
         },
+        breakpoints: {
+            851: {
+                slidesPerView: 1.5,
+            },
+            1401: {
+                slidesPerView: 1.2,
+            },
+        }
     });
 
     // Tooltip
@@ -53,33 +124,38 @@
     });
 
     // Tabs
-    const tabControls = document.querySelector('.tab-controls')
+    const tabControlsGroups = document.querySelectorAll('.tab-controls');
 
-    tabControls.addEventListener('click', toggleTab)
+    tabControlsGroups.forEach(tabControls => {
+        tabControls.addEventListener('click', toggleTab);
+    });
 
     function toggleTab(e) {
-        const tabControl = e.target.closest('.tab-controls__link')
+        const tabControl = e.target.closest('.tab-controls__link');
 
-        if (!tabControl) return
+        if (!tabControl) return;
 
-        e.preventDefault()
+        e.preventDefault();
 
-        if (tabControl.classList.contains('tab-controls__link--active')) return
+        if (tabControl.classList.contains('tab-controls__link--active')) return;
 
-        const tabContentID = tabControl.getAttribute('href')
-        const tabContent = document.querySelector(tabContentID)
-        const activeControl = document.querySelector('.tab-controls__link--active')
-        const activeContent = document.querySelector('.tab-content--show')
+        const tabGroup = tabControl.closest('.tab-accordion-wrapper');
+
+        const tabContentID = tabControl.getAttribute('href');
+        const tabContent = tabGroup.querySelector(tabContentID);
+
+        const activeControl = tabGroup.querySelector('.tab-controls__link--active');
+        const activeContent = tabGroup.querySelector('.tab-content--show');
 
         if (activeControl) {
-            activeControl.classList.remove('tab-controls__link--active')
+            activeControl.classList.remove('tab-controls__link--active');
         }
         if (activeContent) {
-            activeContent.classList.remove('tab-content--show')
+            activeContent.classList.remove('tab-content--show');
         }
 
-        tabControl.classList.add('tab-controls__link--active')
-        tabContent.classList.add('tab-content--show')
+        tabControl.classList.add('tab-controls__link--active');
+        tabContent.classList.add('tab-content--show');
     }
 
     // Accordion 
@@ -231,4 +307,85 @@
         });
     });
 
+    const aboutSlider = new Swiper('.about__slider', {
+        slidesPerView: 1,
+        spaceBetween: 15,
+        navigation: {
+            nextEl: '.about__next',
+            prevEl: '.about__prev',
+        },
+        scrollbar: {
+            el: '.about__scrollbar',
+            draggable: true,
+        },
+        pagination: {
+            el: '.about__pagination',
+            type: 'fraction',
+        },
+        on: {
+            slideChange: function () {
+                updateCustomScrollbar(this.activeIndex, 'about');
+            },
+        },
+        breakpoints: {
+            551: {
+                slidesPerView: 2,
+            },
+            801: {
+                slidesPerView: 3,
+            },
+            1101: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+            },
+        }
+    });
+
+    const newsSlider = new Swiper('.news__slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.news__next',
+            prevEl: '.news__prev',
+        },
+        scrollbar: {
+            el: '.news__scrollbar',
+            draggable: true,
+        },
+        pagination: {
+            el: '.news__pagination',
+            type: 'fraction',
+        },
+        on: {
+            slideChange: function () {
+                updateCustomScrollbar(this.activeIndex, 'news');
+            },
+        },
+        breakpoints: {
+            551: {
+                slidesPerView: 2,
+            },
+            901: {
+                slidesPerView: 3,
+            },
+            1201: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+            },
+        }
+    });
+
+    function updateCustomScrollbar(activeIndex, sliderType) {
+        const rects = document.querySelectorAll(`.custom-scrollbar-rect[data-slider="${sliderType}"]`);
+        rects.forEach((rect, index) => {
+            if (index === activeIndex) {
+                rect.classList.add('custom-scrollbar-rect--active');
+            } else {
+                rect.classList.remove('custom-scrollbar-rect--active');
+            }
+        });
+    }
+
+    updateCustomScrollbar(aboutSlider.activeIndex, 'about');
+    updateCustomScrollbar(newsSlider.activeIndex, 'news');
 })();
